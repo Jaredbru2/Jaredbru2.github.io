@@ -1,2 +1,2 @@
-# Jareds-Coder-Cave.github.io
+# Jaredbru2.github.io
 Welcome to the coder cave, have a look around...
