@@ -32,63 +32,61 @@
         (function(){
             'use strict';
 
-            // Reference to the HTML .box element
-            var box = $('.box');
-            // Reference to the HTML .board element
-            var board = $('.board');
-            // The maximum X-Coordinate of the screen
-            var boardWidth = board.width();
+// Reference to the HTML .box element
+  var box = $('.box');
+  // Reference to the HTML .board element
+  var board = $('.board');
+  // The maximum X-Coordinate of the screen
+  var boardWidth = board.width();
 
-            // Move the Box to a new position on the screen along the X-Axis
-            function moveBoxTo(newPositionX) {
-                box.css("left", newPositionX);
-            }
+  // Move the Box to a new position on the screen along the X-Axis
+  function moveBoxTo(newPositionX) {
+    box.css("left", newPositionX);
+  }
 
-            // Changes the text displayed on the Box
-            function changeBoxText(newText) {
-                box.text(newText);
-            }
+  // Changes the text displayed on the Box
+  function changeBoxText(newText) {
+    box.text(newText);
+  }
 
-            // Variable declarations
-            var positionX = 0;
-            var speed = 5;
-			var points = 0
+  // Variable declarations
+  var positionX = 0;
+  var speed = 5;
+  var points = 0;
 
-            // Update function to be called 20 times/second
-            function update() {
-                positionX += speed;
+  // Update function to be called 20 times/second
+  function update() {
+    positionX += speed;
 
-                if (positionX > boardWidth) {
-                    positionX = boardWidth;
-                    speed *= -1; // Reverse the direction
-                } else if (positionX < 0) {
-                    positionX = 0;
-                    speed *= -1; // Reverse the direction
-                }
+    if (positionX > boardWidth) {
+      positionX = boardWidth;
+      speed *= -1; // Reverse the direction
+    } else if (positionX < 0) {
+      positionX = 0;
+      speed *= -1; // Reverse the direction
+    }
 
-                moveBoxTo(positionX);
-            }
+    moveBoxTo(positionX);
+  }
 
-            // Every 50 milliseconds, call the update function
-            setInterval(update, 50);
+  // Every 50 milliseconds, call the update function
+  setInterval(update, 50);
 
-            // Function to handle box click event
-			function handleBoxClick() {
-   			 positionX = 0;
-			points += 1; // increase the points variable by 1
-			changeBoxText(points);
-			}
-				
-                // Increase points total
-                // Increase speed
-                // Move the box to the left side of the screen
-                positionX = 0;
-                speed += 10;
-            }
+  // Function to handle box click event
+  function handleBoxClick() {
+    positionX = 0;
+    points += 1; // increase the points variable by 1
+    changeBoxText(points);
+    // Increase points total
+    // Increase speed
+    // Move the box to the left side of the screen
+    positionX = 0;
+    speed += 10;
+  }
 
-            // Attach click event listener to the box
-            box.on('click', handleBoxClick);
-        })();
-    </script>
+  // Attach click event listener to the box
+  box.on('click', handleBoxClick);
+})();
+</script>
 </body>
 </html>
